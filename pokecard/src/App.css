@@ -1,0 +1,10 @@
+.poke-list{
+    display : flex;
+    justify-content: center;
+    flex-wrap : Wrap;
+    gap:10px;
+    width:100%;
+    margin: 0 auto;
+    
+
+}
