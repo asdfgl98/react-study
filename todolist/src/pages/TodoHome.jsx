@@ -4,7 +4,6 @@ import TodoList from '../Components/TodoList'
 
 const TodoHome = () => {
     const [todos, setTodos] = useState([])
-    console.log('qq',todos)
 
 
     let toStart = todos.filter((item)=>item.complete === false)
@@ -25,7 +24,7 @@ const TodoHome = () => {
 
 
         {/* 완료된 일 */}
-        <TodoList todos={todos} toEnd={toEnd} setTodos={setTodos}  toDo="완료"/>
+        <TodoList todos={todos} toStart={toEnd} setTodos={setTodos}  toDo="완료"/>
     </div>
   )
 }
