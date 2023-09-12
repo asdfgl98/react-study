@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const GoodsItem = ({data}) => {
 
@@ -7,10 +7,10 @@ const GoodsItem = ({data}) => {
   const itemId = useRef()
 
   // 상세 페이지
-  const detailClick = ()=>{
-    let id = itemId.current.id
-    navi(`/listDetail/${id}`)
-  }
+  // const detailClick = ()=>{
+  //   let id = itemId.current.id
+  //   navi(`/listDetail/${id}`)
+  // }
 
 
   return (
@@ -23,10 +23,10 @@ const GoodsItem = ({data}) => {
       <div className="goods-thumb">
         {/* 
           이미지 클릭 시, Link컴포넌트를 이용해 상세페이지로 이동하시오
-          상세페이지 URL : /menu/상품의 id
-        */}
+          상세페이지 URL : /menu/상품의 id        */}
 
-        <img id={data.id} onClick={detailClick} src={data.detail.sub_thumb} alt="이미지" ref={itemId} />
+        {/* <img id={data.id} onClick={detailClick} src={data.detail.sub_thumb} alt="이미지" ref={itemId} /> */}
+        <Link to={`/listDetail/${data.id}`}><img id={data.id} src={data.detail.sub_thumb} alt="이미지" ref={itemId} /></Link>
       </div>
       <div className="goods-name">
         <h4>{data.name}</h4>

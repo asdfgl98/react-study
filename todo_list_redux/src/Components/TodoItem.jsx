@@ -5,7 +5,11 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
-const TodoItem = ({ todos, setTodos, todo }) => {    
+import {TodoRedcerActions} from '../redex/reducers/todoSlice'
+
+const TodoItem = ({ todos, setTodos, todo }) => {
+  
+  
 
   let checkBtn = useRef()
 
@@ -21,7 +25,7 @@ const TodoItem = ({ todos, setTodos, todo }) => {
         ...item,
         text: item.id === id ? input.value : item.text,
       }))
-      setShow(false)   
+      setShow(false)
       setTodos(new_todo) 
     }
     else{
@@ -48,10 +52,10 @@ const TodoItem = ({ todos, setTodos, todo }) => {
     let id = checkBtn.current.id
     let new_todo = todos.map((item) => ({
       ...item,
-      complete: item.id === id ? !item.complete : item.complete,
+      complete: item.id === id ? item.complete : !item.complete,
     }))
 
-    console.log('new',new_todo)
+    // console.log('new',new_todo)
     setTodos(new_todo)
   }
 
@@ -65,7 +69,7 @@ const TodoItem = ({ todos, setTodos, todo }) => {
         />
       ) : (
         <FaCheckCircle
-          style={{ color: 'green' }}
+          style={{ color: 'light-gray' }}
           className="todo-item-checkbox"
           onClick={todoClick}
         />
