@@ -2,6 +2,7 @@ import React from 'react'
 import TodoItem from './TodoItem'
 
 const TodoList = ({todos,toDo,setTodos,toStart}) => {
+
   return (
     <div className='todo-list'>
         <h5 className='todo-list=tit'>{toDo} {toStart.length}개</h5>

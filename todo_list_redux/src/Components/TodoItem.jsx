@@ -4,29 +4,27 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import {useDispatch} from 'react-redux'
 
 import {TodoRedcerActions} from '../redex/reducers/todoSlice'
 
 const TodoItem = ({ todos, setTodos, todo }) => {
   
-  
+  const dispatch = useDispatch()
 
   let checkBtn = useRef()
 
   const [show, setShow] = useState(false)
 
   // 수정 클릭
-  const handleChange = () => {
-    
+  const handleChange = () => {    
     let input =document.querySelector('.form-control')
+    let val  = input.value
     if(input.value !== ''){
       let id = checkBtn.current.id
-      let new_todo = todos.map((item) => ({
-        ...item,
-        text: item.id === id ? input.value : item.text,
-      }))
       setShow(false)
-      setTodos(new_todo) 
+      dispatch(TodoRedcerActions.textChangeTodo({id:id,val:val}))
+      
     }
     else{
       alert('수정사항을 입력해주세요')
@@ -36,7 +34,7 @@ const TodoItem = ({ todos, setTodos, todo }) => {
   // 삭제(휴지통) 클릭
   const deleteTodo = ()=>{
       let new_todo = todos.filter((item) => item.id !== todo.id)
-      setTodos(new_todo)
+      dispatch(TodoRedcerActions.deleteTodo(todo.id))
   }
 
   // 수정(연필) 클릭
@@ -50,13 +48,7 @@ const TodoItem = ({ todos, setTodos, todo }) => {
   // check 버튼 클릭
   const todoClick = () => {
     let id = checkBtn.current.id
-    let new_todo = todos.map((item) => ({
-      ...item,
-      complete: item.id === id ? item.complete : !item.complete,
-    }))
-
-    // console.log('new',new_todo)
-    setTodos(new_todo)
+    dispatch(TodoRedcerActions.setTodo(id))
   }
 
   return (
@@ -69,7 +61,7 @@ const TodoItem = ({ todos, setTodos, todo }) => {
         />
       ) : (
         <FaCheckCircle
-          style={{ color: 'light-gray' }}
+          style={{ color: 'green' }}
           className="todo-item-checkbox"
           onClick={todoClick}
         />

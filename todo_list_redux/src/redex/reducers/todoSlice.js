@@ -12,8 +12,21 @@ export const todoSlice = createSlice({
         state.todos = state.todos.concat(action.payload)
        },
        setTodo:(state,action)=>{
-        state.todos = action.payload
-       }        
+        state.todos = state.todos.map((item)=>({
+            ...item,
+            complete: item.id == action.payload ? !item.complete : item.complete,
+        }))
+       },
+       textChangeTodo:(state,action)=>{
+        console.log(action)
+        state.todos = state.todos.map((item)=>({            
+            ...item,
+            text: item.id == action.payload.id ? action.payload.val : item.text
+        }))
+       },
+       deleteTodo:(state,action)=>{
+         state.todos = state.todos.filter((item) => item.id !== action.payload)
+       }      
     }
 })
 

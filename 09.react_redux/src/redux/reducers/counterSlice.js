@@ -4,6 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
 // - state 초기화
 // - state를 변경하는 함수 정의 -> reducer
 
+// name : reducer의 이름을 정의하는 속성
+// initialState : 
 export const counterSlice = createSlice({
     name : 'counter',
     initialState : {

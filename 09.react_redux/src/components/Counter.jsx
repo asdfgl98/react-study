@@ -21,9 +21,6 @@ import { useRef } from 'react'
 */
 
 const Counter = () => {
-
-
-
     const count = useSelector((state)=>state.counter.count)
     const dispatch = useDispatch()
     const action = useRef()
@@ -35,9 +32,8 @@ const Counter = () => {
         <h1>{count}</h1>
         <button onClick={()=>dispatch(CountRedcerActions.increment())}>증가</button>
         <button onClick={()=>dispatch(CountRedcerActions.decrease())}>감소</button>
-        <button onClick={()=>dispatch(CountRedcerActions.increment2())}>2씩 증가</button>
-        <input type="text" ref={action} />
-        <button onClick={()=>dispatch(CountRedcerActions.incrementByAmount(action.current.value))}>aciton</button>
+        {/* <input type="text" ref={action} /> */}
+        {/* <button onClick={()=>dispatch(CountRedcerActions.incrementByAmount(action.current.value))}>aciton</button> */}
     </div>
   )
 }
