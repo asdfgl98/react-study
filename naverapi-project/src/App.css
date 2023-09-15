@@ -1,0 +1,44 @@
+
+body{
+    background-color: black;
+    color: white;
+}
+.input-group{
+    width:40%;
+    position:fixed;
+    top:150px;
+    left:30%;
+}
+.main{
+    position:fixed;
+    top: 50px;
+    left: 49%;
+}
+
+#inputGroup-sizing-lg{
+    cursor: pointer;
+}
+
+.books{
+    position:fixed;
+    top:250px;
+    left: 15%;
+    width: 70%;
+    height: 70%;
+}
+
+.book-list{
+    display: flex;
+    justify-content: center;
+}
+
+.one-book{
+    margin: 10px
+}
+
+.list-group-item{
+    height:55px;
+}
+.card-body{
+    height:100px;
+}
