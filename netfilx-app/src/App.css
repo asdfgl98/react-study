@@ -151,3 +151,25 @@ body{
   margin: 0 auto;
   /* margin-bottom: 100px; */
 }
+
+
+.movie-filter-box{
+  width: 100vw;
+  height : 100vh;
+  display: flex;
+  
+}
+
+.movie-filter-ui{
+  width:30%;
+  height: 100%;
+  text-align: center;
+}
+
+.movie-filter-result{
+  width:70%;
+  height: 100%;
+  text-align: center;
+  /* display: flex; */
+
+}

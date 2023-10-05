@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Badge from 'react-bootstrap/Badge';
 import api from '../api'
-import { useSelector } from 'react-redux';
 
 const MovieDetail = () => {
     const {movie_num} = useParams()
     const [detailData, setDetailData] = useState(null)
-    const genreData = useSelector((state)=>state.movie.genre)
+    // const genreData = useSelector((state)=>state.movie.genre)
     const [review, setReview] = useState(null)
 
     
@@ -41,7 +40,7 @@ const MovieDetail = () => {
 
 
   return (
-    <div className='movie-container'>
+    <div className='movie-container' style={{backgroundColor : 'black'}}>
       <div className='movie-info'>
           <div className='movie-poster' style={poster_style}></div>
           <div className='movie-script'>
@@ -61,8 +60,8 @@ const MovieDetail = () => {
         <div className='movie-review'>
           <h1>Review</h1>
           <hr></hr>
-          {review?.results.map((item)=>
-          <div>
+          {review?.results.map((item,index)=>
+          <div key={index}>
             <h3 style={{marginTop : '20px', marginBottom : '20px'}}>{item.author}</h3>
             <p>{item.content}</p>
             <hr></hr>
