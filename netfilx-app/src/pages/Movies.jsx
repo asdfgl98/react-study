@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
 import { useSelector } from 'react-redux';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
@@ -80,7 +79,7 @@ const Movies = () => {
 
         </div>
         <div className='movie-filter-result'>
-        <Row xs={1} md={3} className="g-4">
+        <Row xs={1} md={5} className="g-4">
     {movieData?.map((item, idx) => (
       <Col key={idx}>
         <Card>
